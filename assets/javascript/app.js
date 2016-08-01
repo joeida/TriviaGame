@@ -16,15 +16,16 @@ var compute = {
     gameTime: 100,
     questionTime: 30,
     betweenTime: 2,
-    win: 0,
-    loss: 0,
-    unanswered: 0,
+    winCount: 0,
+    lossCount: 0,
+    unansweredCount: 0,
+    gameCounter: undefined,
     questionCounter: undefined,
     startGame: function() {
-        gameCounter = setInterval(compute.gameCount, 1000);
+        compute.gameCounter = setInterval(compute.gameCount, 1000);
     },
     stopGame: function() {
-        clearInterval(gameCounter);
+        clearInterval(compute.gameCounter);
     },
     gameCount: function() {
         compute.gameTime--;
@@ -41,26 +42,37 @@ var compute = {
     questionCount: function() {
         compute.questionTime--;
         output.questionTime();
-    },
-    correct: function() {
-        compute.win++;
-        compute.stopQuestion();
-        output.correct();
-        setTimeout(compute.startQuestion, 2000);
-    },
-    wrong: function() {
-        compute.loss++;
-        compute.stopQuestion();
-        output.wrong();
-        setTimeout(compute.startQuestion, 2000);
+        if (compute.questionTime === 0) {
+            compute.unanswered();
+        }
     },
     nextQuestion: function() {
         compute.questionNumber++;
         if (compute.questionNumber > trivia.length -1) {
             compute.questionNumber = 0;
         }
+    },
+    correct: function() {
+        output.correct();
+        compute.winCount++;
+        compute.stopQuestion();
+        compute.nextQuestion();
+        setTimeout(compute.startQuestion, 2000);
+    },
+    wrong: function() {
+        output.wrong();
+        compute.lossCount++;
+        compute.stopQuestion();
+        compute.nextQuestion();
+        setTimeout(compute.startQuestion, 2000);
+    },
+    unanswered: function() {
+        output.unanswered();
+        compute.unansweredCount++;
+        compute.stopQuestion();
+        compute.nextQuestion();
+        setTimeout(compute.startQuestion, 2000);
     }
-
 
 };
 
@@ -87,14 +99,18 @@ var output = {
     correct: function() {
         $('#triviaDiv').html('<div>' + output.winOutput + '</div>');
         $('#timerDiv').css('display', 'none');
-        compute.nextQuestion();
     },
     // Output Trivia Wrong Answer Chosen
     wrong: function() {
-        $('#triviaDiv').html('<div>' + output.loseOutput + '</div>');
+        $('#triviaDiv').html('<div>' + output.loseOutput + ' The correct answer is ' + trivia[compute.questionNumber].correct + '.</div>');
         $('#timerDiv').css('display', 'none');
-        compute.nextQuestion();
+    },
+    // Output Trivia Unanswered
+    unanswered: function() {
+        $('#triviaDiv').html('<div>The correct answer is ' + trivia[compute.questionNumber].correct + '.</div>');
+        $('#timerDiv').css('display', 'none');
     }
+
 };
 
 $(document).ready(function() {

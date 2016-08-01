@@ -2,17 +2,70 @@ var trivia = [
     {
         question: 'Who is known as the Black Mamba?',
         correct: 'Kobe Bryant',
-        answer: ['Michael Jordan', 'Kobe Bryant', 'Magic Johnson', 'Allen Iverson']
+        answer: ['Michael Jordan', 'Kobe Bryant', 'Magic Johnson', 'Allen Iverson'],
+        query: 'kobe+bryant+black+mamba',
+        imageIndex: 10
     },
     {
         question: 'Who is the NBA all time scoring leader?',
         correct: 'Kareem Abdul Jabbar',
-        answer: ['Jerry West', 'Michael Jordan', 'Wilt Chaimberlain', 'Kareem Abdul Jabbar']
+        answer: ['Jerry West', 'Michael Jordan', 'Wilt Chaimberlain', 'Kareem Abdul Jabbar'],
+        query: 'kareem+abdul+jabbar',
+        imageIndex: 4
+    },
+    {
+        question: 'Which team won the 2009 NBA championship?',
+        correct: 'Los Angeles Lakers',
+        answer: ['Los Angeles Lakers', 'Chicago Bulls', 'Portland Trailblazers', 'San Antonio Spurs'],
+        query: 'los+angeles+lakers+2009',
+        imageIndex: 4
+    },
+    {
+        question: 'Which country won the first olympic gold medal in basketball?',
+        correct: 'USA',
+        answer: ['Russia', 'Germany', 'USA', 'Spain'],
+        query: 'michael+jordan+olympic',
+        imageIndex: 0
+    },
+    {
+        question: 'Who was the NBA Championship trophy named after?',
+        correct: 'Jerry West',
+        answer: ['Michael Jordan', 'Wilt Chaimberlain', 'Bill Russel', 'Jerry West'],
+        query: 'jerry+west',
+        imageIndex: 6
+    },
+    {
+        question: 'Who holds the record for most points in a single NBA game?',
+        correct: 'Wilt Chaimberlain',
+        answer: ['Larry Bird', 'Michael Jordan', 'Wilt Chaimberlain', 'Kobe Bryant'],
+        query: 'wilt+chaimberlain',
+        imageIndex: 8
+    },
+    {
+        question: 'How many teams are in the NBA?',
+        correct: '30',
+        answer: ['15', '25', '30', '35'],
+        query: 'nba+teams',
+        imageIndex: 1
+    },
+    {
+        question: 'Which team has the record amount of NBA Championships?',
+        correct: 'Boston Celtics',
+        answer: ['Los Angeles Lakers', 'Boston Celtics', 'Chicago Bulls', 'San Antonio Spurs'],
+        query: 'nba+boston+celtic',
+        imageIndex: 2
+    },
+    {
+        question: 'What is the name of the Championship trophy given to the team who wins the NBA finals?',
+        correct: "Larry O'Brien Championship Trophy",
+        answer: ['NBA Finals Championship Trophy', 'Bill Russel Championship Trophy', 'McDonalds Championship Trophy', "Larry O'Brien Championship Trophy"],
+        query: 'larry+obrien+trophy',
+        imageIndex: 2
     }
 ];
 
 var compute = {
-    questionNumber: 0,
+    questionNumber: 8,
     gameTime: 90,
     questionTime: 30,
     betweenTime: 2,
@@ -159,6 +212,19 @@ var output = {
     correct: function() {
         $('#triviaDiv').html('<div>' + output.winOutput + '</div>');
         $('#timerDiv').css('display', 'none');
+        console.log(compute.questionNumber);
+        output.gifAnimate();
+    },
+
+    // Display Correct Answer Gif
+    gifAnimate: function() {
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + trivia[compute.questionNumber].query + "&api_key=dc6zaTOxFJmzC";
+        var imageIndex = trivia[compute.questionNumber].imageIndex; 
+        $.ajax({url: queryURL, method: 'GET'})
+        .done(function(response) {
+            console.log(response);
+            $('#triviaDiv').append('<img src=' + response.data[imageIndex].images.fixed_height.url + ' >');
+        });
     },
 
     // Output trivia wrong answer chosen text and output correct answer

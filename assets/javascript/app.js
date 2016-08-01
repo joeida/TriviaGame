@@ -13,7 +13,7 @@ var trivia = [
 
 var compute = {
     questionNumber: 0,
-    gameTime: 100,
+    gameTime: 90,
     questionTime: 30,
     betweenTime: 2,
     winCount: 0,
@@ -125,7 +125,7 @@ var compute = {
 
     // Reset game after restart game is pressed at end of game
     resetGame: function() {
-        compute.gameTime = 100;
+        compute.gameTime = 90;
         compute.winCount = 0;
         compute.lossCount = 0;
         compute.unansweredCount = 0;
@@ -145,7 +145,7 @@ var output = {
 
     // Output trivia question
     question: function() {
-        $('#timerDiv').css('display', 'block');
+        $('#timerDiv').css('display', 'inline-block');
         $('#triviaDiv').html('');
         var currentQuestion = trivia[compute.questionNumber];
         $('#triviaDiv').append('<div id="triviaQuestion">' + currentQuestion.question + '</div>');
@@ -177,7 +177,7 @@ var output = {
     endGame: function() {
         $('#triviaDiv').html('<div>Game Over</div><div>Your Stats Are Below</div><div>Wins: ' + compute.winCount + '</div><div>Losses: ' + compute.lossCount + '</div><div>Unanswered: ' + compute.unansweredCount + '</div><div>Press Below To Play Again</div>');
         $('#timerDiv').css('display', 'none');
-        $('#playAgainButton').css('display', 'block');
+        $('#playAgainButton').css('display', 'inline-block');
     }
 
 };

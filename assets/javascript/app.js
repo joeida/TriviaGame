@@ -52,7 +52,26 @@ var trivia = [
         correct: "Larry O'Brien Championship Trophy",
         answer: ['NBA Finals Championship Trophy', 'Bill Russel Championship Trophy', 'McDonalds Championship Trophy', "Larry O'Brien Championship Trophy"],
         gif: "http://media4.giphy.com/media/yo6ntHXOpVIqY/200.gif"
+    },
+    {
+        question: 'What year was the NBA first established?',
+        correct: "1946",
+        answer: ['1923', '1946', '1955', "1962"],
+        gif: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgjgDzK-0wb-aWy7XNdxCiSmNw5kPwrMh9lDOEv_WF7npm8YvM"
+    },
+    {
+        question: 'Who is the only coach to win both a NCAA and NBA championship?',
+        correct: "Larry Brown",
+        answer: ['Phil Jackson', "Pat O'Reilly", 'Mike Krzyzewski', "Larry Brown"],
+        gif: "http://www.trbimg.com/img-55079af2/turbine/la-sp-ucla-smu-larry-brown-20150317"
+    },
+    {
+        question: 'Who was the first African American to play in an NBA game?',
+        correct: "Earl Lloyd",
+        answer: ['Earl Lloyd', 'Bill Russel', 'Chuck Cooper', "Harry Lew"],
+        gif: "https://s-media-cache-ak0.pinimg.com/236x/78/4b/42/784b427419a949f4f16666af3555b110.jpg"
     }
+
 ];
 
 var compute = {
@@ -209,7 +228,7 @@ var output = {
     // Display Correct Answer Gif
     gifAnimate: function() {
         var imageGif = trivia[compute.questionNumber].gif; 
-        $('#triviaDiv').append('<img src=' + imageGif +  ' >');
+        $('#triviaDiv').append('<img src=' + imageGif +  ' />');
     },
 
     // Output trivia wrong answer chosen text and output correct answer

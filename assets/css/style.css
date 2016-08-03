@@ -1,0 +1,91 @@
+/* global */
+
+body {
+    background:  url('../images/basketball-941996_960_720.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Cabin', sans-serif;
+    color: silver;
+}
+.container {
+    text-align:  center;
+}
+
+/* general */
+
+h1 {
+    font-size: 70px;
+    font-family: 'Raleway', sans-serif;
+    color:  darkorange;
+    text-shadow: 2px 2px black;
+}
+img {
+    height:  300px;
+}
+.btn {
+    height: 50px;
+    width: 400px;
+    font-size: 24px;
+    opacity: 0.90;
+}
+.btn:hover {
+    color: black;
+}
+#timerDiv {
+    font-size: 28px;
+    text-shadow: -1.5px 0 red,0 1.5px red,1.5px 0 red,0 -1.5px red;
+}
+#triviaDiv {
+    font-size: 24px;
+    color: #0080FF;
+    text-shadow: -1px 0 silver,0 1px silver,1px 0 silver,0 -1px silver;
+}
+
+/* media queries */
+
+@media screen and (max-width: 601px) {
+    h1 {
+        font-size: 30px;
+    }
+    .btn {
+        height: 35px;
+        width: 350px;
+        font-size: 16px;
+    }
+    img {
+        height: 200px;
+    }
+    #timerDiv {
+        font-size: 20px;
+    }
+    #triviaDiv {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 602px) and (max-width: 715px) {
+    h1 {
+        font-size: 50px;
+    }
+    .btn {
+        height: 40px;
+        font-size: 20px;
+    }
+    #timerDiv {
+        font-size: 22px;
+    }
+    #triviaDiv {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 716px) and (max-width: 991px) {
+    h1 {
+        font-size: 60px;
+    }
+    #timerDiv {
+        font-size: 24px;
+    }
+    #triviaDiv {
+        font-size: 20px;
+    }
+}

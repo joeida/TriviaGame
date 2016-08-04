@@ -144,7 +144,7 @@ var compute = {
 
         // Check to see if game timer is expired and if so, output end game statistics and restart button
         if (compute.gameOver) {
-            compute.endGame();
+            setTimeout(compute.endGame, 4000);
         } else {
             setTimeout(compute.startQuestion, 4000);
         }
@@ -159,7 +159,7 @@ var compute = {
 
         // Check to see if game timer is expired and if so, output end game statistics and restart button
         if (compute.gameOver) {
-            compute.endGame();
+            setTimeout(compute.endGame, 4000);
         } else {
             setTimeout(compute.startQuestion, 4000);
         }
@@ -173,7 +173,7 @@ var compute = {
 
         // Check to see if game timer is expired and if so, output end game statistics and restart button
         if (compute.gameOver) {
-            compute.endGame();
+            setTimeout(compute.endGame, 4000);
         } else {
             setTimeout(compute.startQuestion, 4000);
         }

@@ -4,7 +4,7 @@
 * Create basketball trivia game using HTML, CSS, Javascript.
 
 ### Objective
-* Use HTML, CSS, and Javascript to create a basic trivia game.
+* Demonstrate the use of HTML, CSS, and Javascript in the creation of a basic trivia game.
   1. Create list of trivia questions with 4 possible answers.
   2. Create timer for answering each question.
   3. Create output for correctly or incorrectly answering question.

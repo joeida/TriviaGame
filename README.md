@@ -1,4 +1,4 @@
-# TriviaGame
+# Basketball Trivia Game
 
 ### Overview
 * Create basketball trivia game using HTML, CSS, Javascript.
@@ -18,5 +18,5 @@
 <img width="576" alt="triviagame" src="https://cloud.githubusercontent.com/assets/18523345/20653972/7a941390-b4c9-11e6-8ccb-3e069ae00008.png">
 
 ### Links
-[TriviaGame](https://joeida.github.io/TriviaGame)
+[Basketball Trivia Game](https://joeida.github.io/TriviaGame)
 
